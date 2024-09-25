@@ -1,34 +1,24 @@
-import string
-from collections import Counter
-
 def main():
-    # Read the file contents
+    
     with open("books/frankenstein.txt") as f:
         file_contents = f.read()
     
-    # Split the contents into words
-    frankenstein = file_contents.split()
-    
-    # Initialize total word count
-    total_word_count = len(frankenstein)
-    
-    # Initialize letter count dictionary
-    letter_count = Counter()
+    words = file_contents.split()
+    total_word_count = len(words)
+    alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    letter_count = {'a':0, 'b':0, 'c':0, 'd':0, 'e':0, 'f':0, 'g':0, 'h':0, 'i':0, 'j':0, 'k':0, 'l':0, 'm':0, 'n':0, 'o':0, 'p':0, 'q':0, 'r':0, 's':0, 't':0, 'u':0, 'v':0, 'w':0, 'x':0, 'y':0, 'z':0}
 
-    # Count the letters in each word
-    for word in frankenstein:
+    for word in words:
         for letter in word.lower():
-            if letter in string.ascii_lowercase:
+            if letter in alphabet:
                 letter_count[letter] += 1
-
-    # Print the report
-    print("--- Begin report of books/frankenstein.txt ---")
-    print(f"{total_word_count} words found in the document\n\n")
+        
+    print("--- Report of book: frankenstein.txt ---\n")
+    print(f"{total_word_count} words found in the document\n")
     
-    for letter in string.ascii_lowercase:
+    for letter in alphabet:
         print(f"The {letter} character was found {letter_count[letter]} times")
     
-    print("--- End report ---")
-
-if __name__ == "__main__":
-    main()
+    print("\n--- End of report ---")
+    
+main()
